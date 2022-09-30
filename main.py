@@ -3,7 +3,7 @@ import machine
 import dht
 
 import wifi
-from secrets import WIFI_SSID, WIFI_PASSWORD, THINGSPEAK_WRITE_API_KEY,
+from secrets import WIFI_SSID, WIFI_PASSWORD, THINGSPEAK_WRITE_API_KEY
 
 
 THINGSPEAK_URL = "https://api.thingspeak.com/update"
