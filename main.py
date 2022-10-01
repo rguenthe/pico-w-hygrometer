@@ -3,7 +3,7 @@ import machine
 import dht
 import wifi
 
-from secrets import WIFI_SSID, WIFI_PASSWORD, UPLOAD_WRITE_API_KEY
+from secrets import WIFI_KNOWN_NETWORKS, UPLOAD_WRITE_API_KEY
 
 
 UPLOAD_URL = "https://api.thingspeak.com/update"
@@ -22,7 +22,7 @@ def dht_measure_and_upload(dht_sensor):
     humidity = dht_sensor.humidity()
 
     print("check wifi connection")
-    if wifi.connect(WIFI_SSID, WIFI_PASSWORD) == True:
+    if wifi.connect(WIFI_KNOWN_NETWORKS) == True:
 
         print("upload data")
         data = {
@@ -60,7 +60,6 @@ while True:
         measurment_scheduled = True
 
     if measurment_scheduled:
-
         # perform scheduled measurement
         dht_measure_and_upload(dht_sensor)
 
